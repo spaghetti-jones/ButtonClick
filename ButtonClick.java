@@ -1,6 +1,8 @@
 // Author: Luis Barrera
 // Code by Eric Pogue from the original ButtonClick.java
 // Assignment: ButtonClick | Quiz 4
+// Minor addition: Added a button "Button 4"
+// Minor addition: Click Button 4 to replace it with another button
 
 import java.awt.BorderLayout;
 import java.awt.Container;
