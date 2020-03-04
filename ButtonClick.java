@@ -19,14 +19,14 @@ class SeperateActionListener implements ActionListener {
 
 class ButtonFrame extends JFrame implements ActionListener{
     public ButtonFrame() {
-        setBounds(100,100,400,300);
+        setBounds(100,100,800,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JPanel myButtonPanel = new JPanel();
         myButtonPanel.setLayout(new FlowLayout());
 
         JButton button1 = new JButton("Button 1");
-        button1.addActionListener(this); //when button 1 is pressed it prints "myButtonFrame action performed!"
+        button1.addActionListener(this);
 
         JButton button2 = new JButton("Button 2");
         button2.addActionListener(new SeperateActionListener());
@@ -36,11 +36,25 @@ class ButtonFrame extends JFrame implements ActionListener{
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Anonymous::actionPerformed");
             }
-        }); //wrote the class and method in the function call
+        });
+
+        JButton button4 = new JButton("Button 4");
+        button4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+            myButtonPanel.remove(button4);
+            JButton replacement = new JButton("replacement");
+            System.out.println("Button 4 has been replaced!");
+            myButtonPanel.add(replacement);
+            myButtonPanel.revalidate();
+            myButtonPanel.repaint();
+            }
+        });
 
         myButtonPanel.add(button1);
         myButtonPanel.add(button2);
         myButtonPanel.add(button3);
+
+        myButtonPanel.add(button4);
 
         Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
